@@ -47,7 +47,7 @@ class App():
 
         self.root.mainloop()
     def paint_chess(self,x,y,p):
-        Glo.Now[x][y]=1+p
+        Glo.Now[x][y]=p
         I=array(Glo.imm)
         for i in range(200+x*30-5,200+x*30+5):
             for j in range(200+y*30-5,200+y*30+5):
@@ -60,7 +60,7 @@ class App():
         self.panel['image'] = self.img
         # pass
     def update_clock(self):
-        # now = time.strftime("%H:%M:%S")
+
         # self.label.configure(text=now)
         # print("before grab")
         # print("grab")
@@ -71,10 +71,10 @@ class App():
         # self.panel['image'] = self.img
         a,b=Think(Glo.P)
         self.paint_chess(a,b,Glo.P)
-        if WinOrNot(a,b):
+        if WinOrNot(a,b,Glo.Now):
             print(a,b,Glo.P)
+            print(Glo.Now)
             return
-
         if Glo.P==1:
             Glo.P=2
         else:
